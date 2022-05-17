@@ -6,24 +6,24 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 15:55:07 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/12 16:58:31 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/14 13:35:37 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	malloc_your_stacks(char **tab, t_stack *stack)
+int	malloc_your_stacks(char **tab, t_stack *stack)
 {
 	int	i;
 
 	stack->size_a = 0;
 	while (tab[stack->size_a])
-		stack.size_a++;
+		stack->size_a++;
 	stack->stack_a = malloc(sizeof(long long int) * (stack->size_a));
 	if (!stack->stack_a)
 		exit (0);
 	stack->stack_b = malloc(sizeof(long long int) * (stack->size_a));
-	if (!stack.stack_b)
+	if (!stack->stack_b)
 		exit (0);
 	i = -1;
 	stack->sort_array = malloc(sizeof(long long int) * (stack->size_a));
@@ -38,7 +38,7 @@ t_stack	malloc_your_stacks(char **tab, t_stack *stack)
 		stack->sort_array[i] = ft_atol(tab[i]);
 		stack->stack_abis[i] = ft_atol(tab[i]);
 	}
-	return (stack);
+	return (0);
 }
 
 void	check_double(t_stack *stack)
@@ -102,7 +102,7 @@ void	check_size_int(t_stack *stack)
 	}
 }
 
-t_stack	check_errors(int argc, char **argv, t_stack stack)
+int	check_errors(int argc, char **argv, t_stack *stack)
 {
 	char	**array;
 
@@ -111,17 +111,19 @@ t_stack	check_errors(int argc, char **argv, t_stack stack)
 	if (argc == 2)
 	{
 		array = ft_split(argv[1], ' ');
-		stack = malloc_your_stacks(array, stack);
+		//stack = malloc_your_stacks(array, stack);
+		malloc_your_stacks(array, stack);
 		check_alpha_or_num(array);
 		check_double(stack);
 		check_size_int(stack);
 	}
 	else if (argc == 2)
 	{
-		stack = malloc_your_stacks(argv + 1, stack);
+		//stack = malloc_your_stacks(argv + 1, stack);
+		malloc_your_stacks(argv + 1, stack);
 		check_alpha_or_num(argv + 1);
 		check_double(stack);
 		check_size_int(stack);
 	}
-	return (stack);
+	return (0);
 }

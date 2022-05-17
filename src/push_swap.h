@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 08:56:24 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/12 16:07:10 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/14 13:37:17 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@ typedef struct s_stack
 
 long long int	ft_atol(const char *str);
 void			error_close(char *str);
-t_stack			check_errors(int argc, char **argv, t_stack stack);
-t_stack			push_a(t_stack stack);
-t_stack			push_b(t_stack stack);
-t_stack			rotate_a(t_stack stack);
-t_stack			rotate_b(t_stack stack);
-t_stack			rotate_a_b(t_stack stack);
-t_stack			sorted_index(t_stack stack);
+int				check_errors(int argc, char **argv, t_stack *stack);
+void			push_a(t_stack *stack);
+void			push_b(t_stack *stack);
+void			rotate_a(t_stack *stack);
+void			rotate_b(t_stack *stack);
+void			rotate_a_b(t_stack *stack);
+int				sorted_index(t_stack *stack);
 
 #endif

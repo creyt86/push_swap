@@ -6,7 +6,7 @@
 #    By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 09:00:09 by creyt             #+#    #+#              #
-#    Updated: 2022/05/12 11:38:24 by creyt            ###   ########.fr        #
+#    Updated: 2022/05/14 13:39:03 by creyt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,11 @@ CFLAGS = -Werror -Wextra -Wall -g -fsanitize=address
 OBJS = ${SRCS:.c=.o}
 SRCS = src/ft_atol.c \
 		src/ps_check_errors.c \
+		src/ps_index.c \
 		src/ps_push.c \
 		src/ps_reverse.c \
 		src/ps_rotate.c \
+		src/ps_sort_three.c \
 		src/ps_swap.c \
 		src/main.c
 LBFT_PATH = libft/

@@ -6,13 +6,13 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 11:42:21 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/12 16:55:56 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/14 13:41:02 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	sort_new_array(t_stack *stack)
+void	sort_new_array(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -24,7 +24,7 @@ int	sort_new_array(t_stack *stack)
 		j = i + 1;
 		while (j < stack->size_a)
 		{
-			if (stack->sort_array[i] > stack->sort_array[i])
+			if (stack->sort_array[i] > stack->sort_array[j])
 			{
 				temp = stack->sort_array[i];
 				stack->sort_array[i] = stack->sort_array[j];
@@ -34,10 +34,9 @@ int	sort_new_array(t_stack *stack)
 		}
 		i++;
 	}
-	return (0);
 }
 
-t_stack	sorted_index(t_stack *stack)
+int	sorted_index(t_stack *stack)
 {
 	int	i;
 	int	j;
@@ -45,7 +44,7 @@ t_stack	sorted_index(t_stack *stack)
 
 	newvalue = 0;
 	i = 0;
-	stack = sort_new_array(stack);
+	sort_new_array(stack);
 	while (i < stack->size_a)
 	{
 		j = 0;
@@ -60,7 +59,7 @@ t_stack	sorted_index(t_stack *stack)
 		}
 		i++;
 	}
-	return (stack);
+	return (0);
 }
 
 /*
