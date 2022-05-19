@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 15:55:07 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/14 13:35:37 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/19 13:25:41 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	malloc_your_stacks(char **tab, t_stack *stack)
 	if (!stack->sort_array)
 		exit (0);
 	stack->stack_abis = malloc(sizeof(long long int) * (stack->size_a));
-	if (stack->stack_abis)
+	if (!stack->stack_abis)
 		exit (0);
 	while (tab[++i])
 	{
@@ -92,13 +92,11 @@ void	check_size_int(t_stack *stack)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->size_a)
+	i = -1;
+	while (++i < stack->size_a)
 	{
-		if (stack->stack_a[i] > 2147483647 || stack->stack_a[i] < -21474836478)
+		if (stack->stack_a[i] > 2147483647 || stack->stack_a[i] < -2147483648)
 			error_close(ERR_SIZE);
-		else
-			i++;
 	}
 }
 
@@ -111,15 +109,13 @@ int	check_errors(int argc, char **argv, t_stack *stack)
 	if (argc == 2)
 	{
 		array = ft_split(argv[1], ' ');
-		//stack = malloc_your_stacks(array, stack);
 		malloc_your_stacks(array, stack);
 		check_alpha_or_num(array);
 		check_double(stack);
 		check_size_int(stack);
 	}
-	else if (argc == 2)
+	else if (argc >= 2)
 	{
-		//stack = malloc_your_stacks(argv + 1, stack);
 		malloc_your_stacks(argv + 1, stack);
 		check_alpha_or_num(argv + 1);
 		check_double(stack);
