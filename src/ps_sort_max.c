@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/17 10:42:37 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/19 17:35:46 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/24 11:35:52 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ int	check_sort_stack_a(t_stack *stack)
 			return (0);
 	}
 	return (1);
-}
-
-int	sort_max(t_stack *stack)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = 0;
-	while (i < stack->size_a)
-	{
-		if (stack->stack_a[i] > max)
-			max = stack->stack_a[i];
-		i++;
-	}
-	return (max);
 }
 
 int	nbr_bit(t_stack *stack)
