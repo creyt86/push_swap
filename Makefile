@@ -6,7 +6,7 @@
 #    By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/27 09:00:09 by creyt             #+#    #+#              #
-#    Updated: 2022/05/19 11:03:10 by creyt            ###   ########.fr        #
+#    Updated: 2022/06/21 15:26:38 by creyt            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Werror -Wextra -Wall -g# -fsanitize=address
 OBJS = ${SRCS:.c=.o}
 SRCS =	src/ps_check_errors.c \
 		src/ps_index.c \
+		src/ps_malloc.c \
 		src/ps_push.c \
 		src/ps_reverse.c \
 		src/ps_rotate.c \

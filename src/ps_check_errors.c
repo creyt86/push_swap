@@ -6,40 +6,11 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 15:55:07 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/24 13:27:20 by creyt            ###   ########.fr       */
+/*   Updated: 2022/06/21 15:31:31 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	malloc_your_stacks(char **tab, t_stack *stack)
-{
-	int	i;
-
-	stack->size_a = 0;
-	while (tab[stack->size_a])
-		stack->size_a++;
-	stack->stack_a = malloc(sizeof(long long int) * (stack->size_a));
-	if (!stack->stack_a)
-		exit (0);
-	stack->stack_b = malloc(sizeof(long long int) * (stack->size_a));
-	if (!stack->stack_b)
-		exit (0);
-	i = -1;
-	stack->sort_array = malloc(sizeof(long long int) * (stack->size_a));
-	if (!stack->sort_array)
-		exit (0);
-	stack->stack_abis = malloc(sizeof(long long int) * (stack->size_a));
-	if (!stack->stack_abis)
-		exit (0);
-	while (tab[++i])
-	{
-		stack->stack_a[i] = ft_atol(tab[i]);
-		stack->sort_array[i] = ft_atol(tab[i]);
-		stack->stack_abis[i] = ft_atol(tab[i]);
-	}
-	return (0);
-}
 
 void	check_double(t_stack *stack)
 {
@@ -100,20 +71,31 @@ void	check_size_int(t_stack *stack)
 	}
 }
 
-int	check_errors(int argc, char **argv, t_stack *stack)
+void	free_array(char **argv, t_stack *stack)
 {
 	char	**array;
+	int		x;
 
+	x = -1;
+	array = ft_split(argv[1], ' ');
+	malloc_your_stacks(array, stack);
+	check_alpha_or_num(array);
+	check_double(stack);
+	check_size_int(stack);
+	while (array[++x])
+		free(array[x]);
+	free(array);
+}
+
+int	check_errors(int argc, char **argv, t_stack *stack)
+{
 	if (argc < 2)
-		error_close(ERR_ARG);
-	if (argc == 2)
 	{
-		array = ft_split(argv[1], ' ');
-		malloc_your_stacks(array, stack);
-		check_alpha_or_num(array);
-		check_double(stack);
-		check_size_int(stack);
+		free(stack);
+		close_no_arg(stack);
 	}
+	if (argc == 2)
+		free_array(argv, stack);
 	else if (argc >= 2)
 	{
 		malloc_your_stacks(argv + 1, stack);

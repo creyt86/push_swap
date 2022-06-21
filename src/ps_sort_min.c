@@ -6,11 +6,19 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/12 14:47:52 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/19 13:27:10 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/24 15:53:27 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	sort_just_two(t_stack *stack)
+{
+	if (stack->stack_a[0] > stack->stack_a[1])
+		swap_a(stack);
+	else
+		exit (0);
+}
 
 void	sort_one(t_stack *stack)
 {

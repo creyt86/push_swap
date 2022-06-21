@@ -6,7 +6,7 @@
 /*   By: creyt <marvin@42lausanne.ch>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 14:28:04 by creyt             #+#    #+#             */
-/*   Updated: 2022/05/24 13:19:03 by creyt            ###   ########.fr       */
+/*   Updated: 2022/05/24 16:45:26 by creyt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,15 @@ void	error_close(char *str)
 	ft_printf("\n--------------------------\n\n%s\
 	%s\n--------------------------\n\n", ERROR, str);
 	exit(EXIT_FAILURE);
+}
+
+void	close_no_arg(t_stack *stack)
+{
+	free(stack->stack_a);
+	free(stack->stack_b);
+	free(stack->sort_array);
+	free(stack->stack_abis);
+	exit(0);
 }
 
 void	init_my_stack(t_stack *stack)
